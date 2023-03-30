@@ -1,43 +1,3 @@
-/**
-  ******************************************************************************
-  * @file    Templates/Src/main.c 
-  * @author  MCD Application Team
-  * @brief   STM32F4xx HAL API Template project 
-  *
-  * @note    modified by ARM
-  *          The modifications allow to use this file as User Code Template
-  *          within the Device Family Pack.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
-  *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
-  *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  *
-  ******************************************************************************
-  */
-
-/* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "Board_LED.h"                  // ::Board Support:LED
 #include "stm32f4xx_hal.h" // Keil::Device:STM32Cube HAL:Common
@@ -45,7 +5,7 @@
 #include "ADC_Init_example_STM32F4.h" 
 
 
-//Structure de données permettant de caractériser le périphérique pour le MANIPULER (Handle)
+//Structure de donnÃ©es permettant de caractÃ©riser le pÃ©riphÃ©rique pour le MANIPULER (Handle)
 extern ADC_HandleTypeDef myADC2Handle;
 
 #ifdef _RTE_
@@ -151,19 +111,19 @@ HAL_ADC_Start ( & myADC2Handle);// init et conversion ADC
 		//LED_Off (1);//led 3 dans la carte
 		LED_On (2); 	//led 5 dans la carte
 		}
-		if (x>5){
+		if (x>50){
 		//LED_Off(1); //led 3 dans la carte
 		LED_On(3); 	//led 6 dans la carte
+		if (x>750){
+		//LED_Off(1); //led 3 dans la carte
+		LED_On(0); 	//led 6 dans la carte
 		}
 		else{
 		LED_Off(3); 
 		}
-		if ((x>=1095) || (x>=50)|| (x>=20)){
-		//LED_Off(1); //led 3 dans la carte
-		//LED_On (0); //led 4 dans la carte
-		}
+		
 
-}}
+}}}
 return 0;
 }
 
@@ -270,13 +230,3 @@ void assert_failed(uint8_t* file, uint32_t line)
 }
 
 #endif
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
